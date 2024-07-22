@@ -22,15 +22,20 @@ def counting_boats() -> int:
     if 1 <= max_weight_boat <= 100000:
         fishermen: int = int(input("Количество рыбаков: "))
         if 1 <= fishermen <= 100:
-            weight_men: list = sorted([int(input("Вес одного рыбака: ")) for i in range(fishermen)])
+            weight_men: list = sorted([int(input("Вес рыбака: ")) for _ in range(fishermen)])
             for i in weight_men:
                 if 1 > i > max_weight_boat:
                     return f"the weight of the traveler cannot exceed the weight of the boat"
             if len(weight_men) != fishermen:
                 return f'There are only {fishermen} fishermen'
-            for i in range(0, len(weight_men)//2 + 1,):
-                if weight_men[i] + weight_men[-1-i] <= max_weight_boat or weight_men[i] <= max_weight_boat:  
-                    result += 1
+            if len(weight_men)%2:
+                for i in range(0, len(weight_men)//2+1):
+                    if weight_men[i] + weight_men[-1-i] <= max_weight_boat or weight_men[i] <= max_weight_boat:  
+                        result += 1
+            else:
+                for i in range(0, len(weight_men)//2):
+                    if weight_men[i] + weight_men[-1-i] <= max_weight_boat or weight_men[i] <= max_weight_boat:  
+                        result += 1
             return result
         else:
             return f'there should be more than 1 fishermen but less than 100'
