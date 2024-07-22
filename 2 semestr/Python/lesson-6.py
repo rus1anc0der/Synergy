@@ -29,7 +29,7 @@ def counting_boats() -> int:
             if len(weight_men) != fishermen:
                 return f'There are only {fishermen} fishermen'
             for i in range(0, len(weight_men)//2 + 1,):
-                if weight_men[i] + weight_men[-1-i] <= max_weight_boat:  
+                if weight_men[i] + weight_men[-1-i] <= max_weight_boat or weight_men[i] <= max_weight_boat:  
                     result += 1
             return result
         else:
