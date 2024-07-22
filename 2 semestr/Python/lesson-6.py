@@ -18,23 +18,19 @@ def modified_list(lst: list) -> list:
 
 def counting_boats() -> int:
     result: int = 0
-    max_weight_boat: int = int(input())
+    max_weight_boat: int = int(input('Максимальная масса которую может выдержать одна лодка: '))
     if 1 <= max_weight_boat <= 100000:
-        fishermen: int = int(input())
+        fishermen: int = int(input("Количество рыбаков: "))
         if 1 <= fishermen <= 100:
-            weight_men: list = sorted(list(map(int, input().split())))
+            weight_men: list = sorted([int(input("Вес одного рыбака: ")) for i in range(fishermen)])
             for i in weight_men:
                 if 1 > i > max_weight_boat:
                     return f"the weight of the traveler cannot exceed the weight of the boat"
             if len(weight_men) != fishermen:
                 return f'There are only {fishermen} fishermen'
-            for i in range(0, len(weight_men)-1, 2):
-                if weight_men[i] + weight_men[i+1] <= max_weight_boat:  
+            for i in range(0, len(weight_men)//2 + 1,):
+                if weight_men[i] + weight_men[-1-i] <= max_weight_boat:  
                     result += 1
-                else:
-                    result += 2      
-            if len(weight_men) % 2 != 0:
-                result += 1
             return result
         else:
             return f'there should be more than 1 fishermen but less than 100'
@@ -45,7 +41,7 @@ def counting_boats() -> int:
 # task1
 # print(reverse_list())
 
-# # task2
+# task2
 # input_num1: int = int(input())
 # if 1 <= input_num1 <= 100000:
 #     result: list = list(map(int, input().split()))
