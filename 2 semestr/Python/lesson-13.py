@@ -48,13 +48,18 @@ class Turtle:
             print('Ошибка, количество ходов должно быть больше 0')
         
     def count_moves(self, x2, y2) -> None:
-        ...
+        x = abs(x2 - self.x)
+        y = abs(y2 - self.y)
+        return x + y
 
 
         
-kassa = Kassa(10_000) # заводим кассу с 10 тыс рублями
-print(kassa.count_1000()) # смотрим сколько тысяч
-kassa.top_up(500) # прибавляем 500 руб
-kassa.take_away(1000) # отнимаем 1000 руб
-print(kassa)
+# kassa = Kassa(10_000) # заводим кассу с 10 тыс рублями
+# print(kassa.count_1000()) # смотрим сколько тысяч
+# kassa.top_up(500) # прибавляем 500 руб
+# kassa.take_away(1000) # отнимаем 1000 руб
+# print(kassa)
+
+turtle = Turtle(1, 1, 1)
+print(turtle.count_moves(3, 2))
 
