@@ -75,7 +75,7 @@ def get_suffix(age) -> str:
         return "год"
     elif age in [2, 3, 4] or age % 10 in [2, 3, 4]:
         return "года"
-    elif age in [5, 6, 7, 8, 9, 10] or age % 10 in [5, 6, 7, 8, 9, 11]:
+    elif age in [5, 6, 7, 8, 9, 10, 11] or age % 10 in [5, 6, 7, 8, 9]:
         return "лет"
 
 def pets_list() -> str:
@@ -133,4 +133,4 @@ pets = {
     },
 }
 
-# controller() # задание 2
+controller() # задание 2
