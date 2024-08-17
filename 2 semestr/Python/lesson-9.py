@@ -73,10 +73,10 @@ def get_pet(ID) -> dict:
 def get_suffix(age) -> str:
     if age == 1 or age % 10 == 1 and age != 11:
         return "год"
+    elif age in [5, 6, 7, 8, 9, 10, 11, 12, 13, 14] or age % 10 in [0, 5, 6, 7, 8, 9]:
+        return "лет"
     elif age in [2, 3, 4] or age % 10 in [2, 3, 4]:
         return "года"
-    elif age in [5, 6, 7, 8, 9, 10, 11] or age % 10 in [5, 6, 7, 8, 9]:
-        return "лет"
 
 def pets_list() -> str:
     for k, v in pets.items():
